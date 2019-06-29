@@ -6,6 +6,7 @@ import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
 import logo from './logo.svg';
 import './App.css';
+const apiKey = process.env.REACT_APP_STRIPE_API_KEY;
 
 export default function App() {
   const [itemsInCart, setItemsInCart] = useState([]);
@@ -52,7 +53,7 @@ export default function App() {
           </div>
           <Cart itemsInCart={itemsInCart} totalCost={totalCost} />
           {itemsInCart.length > 0 && (
-              <StripeProvider apiKey="your_public_key">
+              <StripeProvider apiKey={apiKey}>
                 <Elements>
                   <CheckoutForm totalCost={totalCost} />
                 </Elements>

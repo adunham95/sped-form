@@ -36,29 +36,44 @@ export default function App() {
 
   return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-header-text">Dreamcast Shop</h1>
-        </header>
         <main className="App-shop">
-          <div className="App-products">
-            {items.map(item => (
-                <Product
-                    key={item.title}
-                    title={item.title}
-                    price={item.price}
-                    onAddToCartClick={() => handleAddToCartClick(item.id)}
-                />
-            ))}
-          </div>
-          <Cart itemsInCart={itemsInCart} totalCost={totalCost} />
-          {itemsInCart.length > 0 && (
+          <form>
+            <input type={"text"} placeholder={"Last Name"}/>
+            <input type={"text"} placeholder={"Preferred First Name"}/>
+            <input type={"text"} placeholder={"Street Address"}/>
+            <input type={"text"} placeholder={"City"}/>
+            <input type={"text"} placeholder={"State"}/>
+            <input type={"text"} placeholder={"Zip"}/>
+            <input type={"text"} placeholder={"Work Address"}/>
+            <input type={"text"} placeholder={"Cell Phone"}/>
+            <input type={"text"} placeholder={"Home Phone"}/>
+            <input type={"text"} placeholder={"Work Phone"}/>
+            <input type={"text"} placeholder={"Job Title"}/>
+            <input type={"number"} placeholder={"Number of Tickets"}/>
+            <select>
+              <option value={"Student"}>Student</option>
+              <option value={"Family"}>Family</option>
+              <option value={"Professional CEC Member"}>Professional CEC Member</option>
+              <option value={"Professional Non-member"}>Professional CEC Member</option>
+              <option value={"Group Rate"}>Group Rate</option>
+              <option value={"Early Bird"}>Early Bird</option>
+              <option value={"At-the-door"}>At-the-door</option>
+            </select>
+            <div>
               <StripeProvider apiKey={apiKey}>
                 <Elements>
                   <CheckoutForm totalCost={totalCost} />
                 </Elements>
               </StripeProvider>
-          )}
+            </div>
+            <input type={"radio"} name={"paymentStatus"} id={"creditCard"} value={"Credit Card"}/>
+            <input type={"radio"} name={"paymentStatus"} id={"check"} value={"Check"}/>
+            <input type={"radio"} name={"paymentStatus"} id={"payAtDoor"} value={"Pay At Door"}/>
+            <input type={"radio"} name={"paymentStatus"} id={"invoice"} value={"Pay By Invoice"}/>
+            <input type={"text"} placeholder={"Payment #"}/>
+            <input type={"text"} placeholder={"Payment Date"}/>
+            <button type={"submit"}>Register</button>
+          </form>
         </main>
       </div>
   );

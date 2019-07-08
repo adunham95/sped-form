@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+<datalist id="states">
+    <option value="Tennessee">
+</datalist>
+
+
+
+<form onsubmit="return submitForm()">
+    <div class="inputContainer">
+        <input type="text" placeholder="Last Name" id="lastName"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Preferred First Name" id="firstName"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Street Address" id="streetAddress"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="City" id="city"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="State" list="states" id="state"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Zip" id="zip"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Work Address" id="workAddress"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Cell Phone" id="cellPhone"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Home Phone" id="homePhone"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Work Phone" id="workPhone"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Job Title" id="jobTitle"/>
+    </div>
+    <div class="inputContainer">
+        <input type="number" placeholder="Number of Tickets" id="numbTickets"/>
+    </div>
+    <div class="inputContainer">
+        <select id="ticketType">
+            <option value="Student">Student</option>
+            <option value="Family">Family</option>
+            <option value="Professional CEC Member">Professional CEC Member</option>
+            <option value="Professional Non-member">Professional CEC Member</option>
+            <option value="Group Rate">Group Rate</option>
+            <option value="Early Bird">Early Bird</option>
+            <option value="At-the-door">At-the-door</option>
+        </select>
+    </div>
+    <div class="payByContainer">
+        <div class="paymentOption">
+            <input type="radio" name="paymentStatus" id="creditCard" value="Credit Card" data-type="card" checked onchange="displayPaymentMethod(event)"/>
+            <label for="creditCard">Pay By Credit Card</label>
+        </div>
+        <div class="paymentOption">
+            <input type="radio" name="paymentStatus" id="check" value="Check" data-type="check" onchange="displayPaymentMethod(event)"/>
+            <label for="check">Pay By Check</label>
+        </div>
+        <div class="paymentOption">
+            <input type="radio" name="paymentStatus" id="payAtDoor" value="Pay At Door" data-type="door" onchange="displayPaymentMethod(event)"/>
+            <label for="payAtDoor">Pay At Door</label>
+        </div>
+        <div class="paymentOption">
+            <input type="radio" name="paymentStatus" id="invoice" value="Pay By Invoice" data-type="invoice" onchange="displayPaymentMethod(event)"/>
+            <label for="invoice">Pay By Invoice</label>
+        </div>
+    </div>
+    <div class="form-row paymentType visible" data-select="card">
+        <label for="card-element">
+            Please Pay by Credit or debit card
+        </label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <!-- Used to display Element errors. -->
+        <div id="card-errors" role="alert"></div>
+    </div>
+    <div class="check paymentType" data-select="check">
+        <p>Please pay by check written to: Tennessee Council for Exceptional Children.</p>
+        <p>Send check & registration form to: Tanya Collins at, 230 Apple Box 275 Vanderbilt University, TN Nashville TN 37203-5721</p>
+    </div>
+    <div class="door paymentType" data-select="door">
+        <p>Please bring a check for the amount due written to Tennessee CEC. We will not have credit card processing available at the conference</p>
+    </div>
+    <div class="invoice paymentType" data-select="invoice">
+        <p>Please pay by check written to: Tennessee Council for Exceptional Children.</p>
+        <p>Send check & registration form to:  Tanya Collins at, 230 Apple Box 275 Vanderbilt University, TN Nashville TN 37203-5721</p>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Payment #" id="paymentNumber"/>
+    </div>
+    <div class="inputContainer">
+        <input type="text" placeholder="Payment Date" id="paymentDate"/>
+    </div>
+    <div class="inputContainer">
+        <button type="submit">Register</button>
+    </div>
+</form>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="functions.js"></script>
+</body>
+</html>

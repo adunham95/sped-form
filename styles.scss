@@ -3,6 +3,52 @@ form{
   flex-direction: column;
 }
 
+.inputContainer{
+  padding: 5px 10px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  button{
+    border: none;
+    background: none;
+  }
+}
+
 input{
-  background: green;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  + input{
+    margin-top: 1em;
+  }
+}
+
+select{
+  width: 100%;
+  border: none;
+}
+
+.paymentType{
+  display: none;
+  &.visible{
+    display: block;
+  }
+}
+
+.payByContainer{
+  display: flex;
+  .paymentOption{
+    input{
+      display: none;
+      &:checked{
+        & ~ label {
+          color: green;
+        }
+      }
+      & ~ label {
+        padding: 5px;
+      }
+    }
+  }
 }

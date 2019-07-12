@@ -1,0 +1,40 @@
+form {
+  display: flex;
+  flex-direction: column; }
+
+.inputContainer {
+  padding: 5px 10px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center; }
+  .inputContainer button {
+    border: none;
+    background: none; }
+
+input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%; }
+  input + input {
+    margin-top: 1em; }
+
+select {
+  width: 100%;
+  border: none; }
+
+.paymentType {
+  display: none; }
+  .paymentType.visible {
+    display: block; }
+
+.payByContainer {
+  display: flex; }
+  .payByContainer .paymentOption input {
+    display: none; }
+    .payByContainer .paymentOption input:checked ~ label {
+      color: green; }
+    .payByContainer .paymentOption input ~ label {
+      padding: 5px; }
+
+/*# sourceMappingURL=styles.css.map */
